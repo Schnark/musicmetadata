@@ -1,0 +1,22 @@
+{
+	"version": "1.0",
+	"name": "Music Metadata",
+	"description": "App to edit metadata in audio files",
+	"package_path": "http://localhost:8080/musicmetadata.zip",
+	"icons": {
+		"128": "/icon-128.png",
+		"284": "/icon-284.png"
+	},
+	"developer": {
+		"name": "Michael Müller",
+		"url": "https://github.com/Schnark"
+	},
+	"installs_allowed_from": ["*"],
+	"default_locale": "en",
+	"locales": {
+		"de": {
+			"name": "Musik-Metadaten",
+			"description": "App zum Bearbeiten von Metadaten in Audiodateien"
+		}
+	}
+}

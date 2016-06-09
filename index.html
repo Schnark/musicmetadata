@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html><head><title>Music Metadata Editor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="style.css">
+<script src="util.js"></script>
+<script src="id3.js"></script>
+<script src="vorbis.js"></script>
+</head><body>
+
+<section id="page-select">
+<button id="button-select-music">Select audio file</button>
+<p>Please note the following things:
+<ul>
+<li>This app is very much beta, and will have some rough edges.</li>
+<li>This app only works with MP3 and OGG/Vorbis files.</li>
+<li>You can only edit the metadata the music app cares about. You can keep other metadata, though.</li>
+<li>The track and disc number should be pure numeric, optionally followed by a slash and the total number. You won't be prevented from entering anything else, though.</li>
+<li>You can add cover images to OGG files, but only recent versions of Firefox OS will read them (probably, I didn't actually test this). Also note that large images will break the file. The threshold is somewhere around 100 KB.</li>
+<li>The original file is kept unchanged, instead a new copy will be stored in your Download folder. Please make sure that this new file works as expected before replacing the original.</li>
+<!--<li>For OGG files, download seems to fail sometimes without notice for no apparent reason. There will be an empty file with the correct name and a file ending in <code>.part</code> in your download folder, which you will have to rename to give the correct file extensions.</li>-->
+<li>This app is free software, its source can be obtained on <a target="_blank" href="https://github.com/Schnark/musicmetadata">Github</a>. There you also find the exact conditions under which you are allowed to reuse this software. This software is provided 'as-is', without any express or implied warranty.</li>
+</ul>
+</p>
+</section>
+
+<section id="page-edit" hidden>
+<label>Title:<br><input id="metadata-title"></label>
+<label>Artist:<br><input id="metadata-artist"></label>
+<label>Album:<br><input id="metadata-album"></label>
+<label>Track:<br><input id="metadata-track" placeholder="1/10"></label>
+<label>Disc:<br><input id="metadata-disc" placeholder="1/2"></label>
+<label>Cover:<br><img id="metadata-cover"></label>
+<button id="button-select-cover">Select cover image</button>
+<button id="button-remove-cover">Remove cover image</button>
+<label><input id="metadata-other" type="checkbox" checked>&nbsp;Keep other metadata (<span id="metadata-other-count"></span> items)</label>
+<button id="button-generate-file">Create file with metadata</button>
+</section>
+
+<section id="page-download" hidden>
+<a class="button" id="button-download">Download file</a>
+<button id="button-next-file">Edit next file</button>
+</section>
+
+<script src="app.js"></script>
+</body></html>

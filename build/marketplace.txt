@@ -1,0 +1,12 @@
+This app allows you to edit metadata in audio files. This includes the title, artist and album shown in the music app as well as the cover image.
+
+Please note the following things:
+<ul>
+<li>This app is very much beta, and will have some rough edges.</li>
+<li>This app only works with MP3 and OGG/Vorbis files.</li>
+<li>You can only edit the metadata the music app cares about. You can keep other metadata, though.</li>
+<li>The track and disc number should be pure numeric, optionally followed by a slash and the total number. You won't be prevented from entering anything else, though.</li>
+<li>You can add cover images to OGG files, but only recent versions of Firefox OS will read them (probably, I didn't actually test this). Also note that large images will break the file. The threshold is somewhere around 100 KB.</li>
+<li>The original file is kept unchanged, instead a new copy will be stored in your Download folder. Please make sure that this new file works as expected before replacing the original.</li>
+<li>This app is free software, its source can be obtained on <a target="_blank" href="https://github.com/Schnark/musicmetadata">Github</a>. There you also find the exact conditions under which you are allowed to reuse this software. This software is provided 'as-is', without any express or implied warranty.</li>
+</ul>

@@ -1,0 +1,27 @@
+html {
+	font-family: sans-serif;
+}
+
+.button, button {
+	font: inherit;
+	display: block;
+	width: 100%;
+	line-height: 2;
+	color: white;
+	background-color: blue;
+	margin-bottom: 0.5em;
+	padding: 1em 0em;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+}
+
+input:not([type="checkbox"]) {
+	font-size: inherit;
+	width: 100%;
+}
+
+img {
+	max-width: 128px;
+	max-height: 128px;
+}
