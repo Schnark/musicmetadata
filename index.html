@@ -1,46 +1,59 @@
 <!DOCTYPE HTML>
-<html><head><title>Music Metadata Editor</title>
+<html><head><title data-l10n-id="title">(title)</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <link rel="stylesheet" href="style.css">
-<script src="util.js"></script>
-<script src="id3.js"></script>
-<script src="vorbis.js"></script>
+<link rel="resource" type="application/l10n" href="l10n/locales.ini">
+<script src="js/l10n.js"></script>
+<script src="js/util.js"></script>
+<script src="js/id3.js"></script>
+<script src="js/vorbis.js"></script>
+<script src="js/mp3-trim.js"></script>
 </head><body>
 
 <section id="page-select">
-<button id="button-select-music">Select audio file</button>
+<button data-l10n-id="button-select-music" id="button-select-music">(button-select-music)</button>
+<!--TODO l10n-->
 <p>Please note the following things:
 <ul>
 <li>This app is very much beta, and will have some rough edges.</li>
 <li>This app only works with MP3 and OGG/Vorbis files.</li>
 <li>You can only edit the metadata the music app cares about. You can keep other metadata, though.</li>
 <li>The track and disc number should be pure numeric, optionally followed by a slash and the total number. You won't be prevented from entering anything else, though.</li>
-<li>You can add cover images to OGG files, but only recent versions of Firefox OS will read them (probably, I didn't actually test this). Also note that large images will break the file. The threshold is somewhere around 100 KB.</li>
+<li>You can add cover images to OGG files, but only recent versions of Firefox OS will read them (probably, I didn't actually test this). Also note that large images will break the file. The threshold is somewhere around 100 KB. Cover files in MP3 should work with much less problems.</li>
+<li>You can trim MP3 files (remove parts at the start and the end). Times should be entered in the form min:sec. You can use decimals to specify milliseconds. Leave the fields empty if you want to trim only from one side or not at all. Note that this might not always work as expected and might confuse the time slider. You should consider this feature as very experimental, you might want to use a different tool like <a target="_blank" href="http://wincreator.com/cutter">wincreator.com</a> instead.</li>
 <li>The original file is kept unchanged, instead a new copy will be stored in your Download folder. Please make sure that this new file works as expected before replacing the original.</li>
-<!--<li>For OGG files, download seems to fail sometimes without notice for no apparent reason. There will be an empty file with the correct name and a file ending in <code>.part</code> in your download folder, which you will have to rename to give the correct file extensions.</li>-->
 <li>This app is free software, its source can be obtained on <a target="_blank" href="https://github.com/Schnark/musicmetadata">Github</a>. There you also find the exact conditions under which you are allowed to reuse this software. This software is provided 'as-is', without any express or implied warranty.</li>
 </ul>
 </p>
 </section>
 
 <section id="page-edit" hidden>
-<label>Title:<br><input id="metadata-title"></label>
-<label>Artist:<br><input id="metadata-artist"></label>
-<label>Album:<br><input id="metadata-album"></label>
-<label>Track:<br><input id="metadata-track" placeholder="1/10"></label>
-<label>Disc:<br><input id="metadata-disc" placeholder="1/2"></label>
-<label>Cover:<br><img id="metadata-cover"></label>
-<button id="button-select-cover">Select cover image</button>
-<button id="button-remove-cover">Remove cover image</button>
-<label><input id="metadata-other" type="checkbox" checked>&nbsp;Keep other metadata (<span id="metadata-other-count"></span> items)</label>
-<button id="button-generate-file">Create file with metadata</button>
+<h1 data-l10n-id="head-metadata">(head-metadata)</h1>
+<h2 data-l10n-id="head-basic">(head-basic)</h2>
+<label><span data-l10n-id="label-title">(label-title)</span><br><input id="metadata-title"></label>
+<label><span data-l10n-id="label-artist">(label-artist)</span><br><input id="metadata-artist"></label>
+<label><span data-l10n-id="label-album">(label-album)</span><br><input id="metadata-album"></label>
+<label><span data-l10n-id="label-track">(label-track)</span><br><input id="metadata-track" placeholder="1/10"></label>
+<label><span data-l10n-id="label-disc">(label-disc)</span><br><input id="metadata-disc" placeholder="1/2"></label>
+<h2 data-l10n-id="head-cover">(head-cover)</h2>
+<img id="metadata-cover">
+<button data-l10n-id="button-select-cover" id="button-select-cover">(button-select-cover)</button>
+<button data-l10n-id="button-remove-cover" id="button-remove-cover" class="destructive">(button-remove-cover)</button>
+<h3 data-l10n-id="head-other">(head-other)</h3>
+<label><input id="metadata-other" type="checkbox" checked>&nbsp;<span data-l10n-id="label-other-part1">(label-other-part1)</span><span id="metadata-other-count"></span> <span data-l10n-id="label-other-part2">(label-other-part2)</span></label>
+<div id="trim-container">
+<h1 data-l10n-id="head-trim">(head-trim)</h1>
+<label><span data-l10n-id="label-start">(label-start)</span><br><input id="metadata-start"></label>
+<label><span data-l10n-id="label-end">(label-end)</span><br><input id="metadata-end"></label>
+</div>
+<button data-l10n-id="button-generate-file" id="button-generate-file">(button-generate-file)</button>
 </section>
 
 <section id="page-download" hidden>
-<a class="button" id="button-download">Download file</a>
-<button id="button-next-file">Edit next file</button>
+<a class="button" data-l10n-id="button-download" id="button-download">(button-download)</a>
+<button data-l10n-id="button-next-file" id="button-next-file">(button-next-file)</button>
 </section>
 
-<script src="app.js"></script>
+<script src="js/app.js"></script>
 </body></html>

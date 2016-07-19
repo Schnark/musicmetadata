@@ -52,6 +52,9 @@ function onClickGenerateFile () {
 	metadata.cover = currentFile.metadata.cover;
 	metadata.other = metadata.other && currentFile.metadata.other;
 	currentFile.metadata = metadata;
+	if (metadata.start || metadata.end) {
+		currentFile.trim(metadata.start, metadata.end);
+	}
 	showSave(util.urlFromBuffer(currentFile.getBuffer(), type), currentFile.name);
 }
 
@@ -60,6 +63,7 @@ function onClickNextFile () {
 }
 
 function showMetadata () {
+	var start, end;
 	document.getElementById('metadata-title').value = currentFile.metadata.title;
 	document.getElementById('metadata-artist').value = currentFile.metadata.artist;
 	document.getElementById('metadata-album').value = currentFile.metadata.album;
@@ -67,14 +71,34 @@ function showMetadata () {
 	document.getElementById('metadata-disc').value = currentFile.metadata.disc;
 	document.getElementById('metadata-other-count').innerHTML = currentFile.metadata.other.length;
 	showCover(currentFile.metadata.cover);
+	start = document.getElementById('metadata-start');
+	end = document.getElementById('metadata-end');
+	if (currentFile.metadata.length) {
+		document.getElementById('trim-container').className = '';
+		start.disabled = false;
+		start.placeholder = '0:00';
+		start.value = '';
+		end.disabled = false;
+		end.placeholder = util.formatTime(currentFile.metadata.length);
+		end.value = '';
+	} else {
+		document.getElementById('trim-container').className = 'disabled';
+		start.disabled = true;
+		start.placeholder = '';
+		start.value = '';
+		end.disabled = true;
+		end.placeholder = '';
+		end.value = '';
+	}
 	document.getElementById('page-select').hidden = true;
 	document.getElementById('page-edit').hidden = false;
 }
 
 function showCover (buffer) {
-	var cover = document.getElementById('metadata-cover');
+	var cover = document.getElementById('metadata-cover'), button = document.getElementById('button-remove-cover');
 	cover.src = buffer ? util.urlFromBuffer(buffer) : '';
 	cover.hidden = !buffer;
+	button.disabled = !buffer;
 }
 
 function showSave (url, name) {
@@ -92,7 +116,9 @@ function readMetadata () {
 		album: document.getElementById('metadata-album').value,
 		track: document.getElementById('metadata-track').value,
 		disc: document.getElementById('metadata-disc').value,
-		other: document.getElementById('metadata-other').checked
+		other: document.getElementById('metadata-other').checked,
+		start: util.readTime(document.getElementById('metadata-start').value),
+		end: util.readTime(document.getElementById('metadata-end').value)
 	};
 }
 

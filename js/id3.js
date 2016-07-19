@@ -81,6 +81,9 @@ function MP3Metadata (buffer) {
 	if (metadata) {
 		this.parseMetadata(new Uint8Array(metadata));
 	}
+	if (this.parseFrames) {
+		this.metadata.length = this.parseFrames(this.music);
+	}
 }
 
 MP3Metadata.prototype.stripMetadata = function (buffer) {

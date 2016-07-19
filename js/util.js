@@ -97,10 +97,36 @@ function getFileAsArrayBuffer (types, callback) {
 	});
 }
 
+function pad (n) {
+	return n < 10 ? '0' + String(n) : String(n);
+}
+
+function formatTime (ms) {
+	var h, m, s;
+	s = Math.round(ms / 1000);
+	m = Math.floor(s / 60);
+	s -= 60 * m;
+	h = Math.floor(m / 60);
+	m -= 60 * h;
+	return (h ? [h, pad(m), pad(s)] : [m, pad(s)]).join(':');
+}
+
+function readTime (time) {
+	time = time.split(':').reduce(function (prev, cur) {
+		return prev * 60 + parseFloat(cur);
+	});
+	if (isNaN(time) || time <= 0) {
+		time = false;
+	}
+	return time * 1000;
+}
+
 return {
 	getMime: getMime,
 	urlFromBuffer: urlFromBuffer,
-	getFile: getFileAsArrayBuffer
+	getFile: getFileAsArrayBuffer,
+	formatTime: formatTime,
+	readTime: readTime
 };
 
 })();
