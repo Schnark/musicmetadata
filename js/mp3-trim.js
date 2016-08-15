@@ -103,9 +103,10 @@ function createIndex (data) {
 }
 
 function cut (data, index, start, end) {
-	var i = 0;
+	var i = 1;
 	if (!start) {
-		start = 0;
+		start = index[1].byteStart; //assume the first frame contains XING metadata, drop it
+		//FIXME we should check this, and rebuild it
 	} else {
 		while (i < index.length && index[i].timeEnd < start) {
 			i++;

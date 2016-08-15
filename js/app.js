@@ -1,4 +1,4 @@
-/*global util, MP3Metadata, VorbisMetadata*/
+/*global util, MP3Metadata, VorbisMetadata, _*/
 (function () {
 "use strict";
 var currentFile, currentType;
@@ -18,7 +18,7 @@ function initEvents () {
 
 function onClickSelectMusic () {
 	util.getFile(['audio/mpeg', 'audio/ogg', 'audio/vorbis'], function (buffer, name) {
-		var id;
+		var id, trim = document.getElementById('check-allow-trim').checked;
 		if (buffer) {
 			id = new Uint8Array(buffer, 0, 4);
 			if (id[0] === 0x4F && id[1] === 0x67 && id[2] === 0x67 && id[3] === 0x53) {
@@ -26,7 +26,7 @@ function onClickSelectMusic () {
 			} else {
 				currentType = 'mp3';
 			}
-			currentFile = currentType === 'mp3' ? new MP3Metadata(buffer) : new VorbisMetadata(buffer);
+			currentFile = currentType === 'mp3' ? new MP3Metadata(buffer, trim) : new VorbisMetadata(buffer);
 			currentFile.name = name || 'audio.' + currentType;
 			showMetadata();
 		}
@@ -63,13 +63,24 @@ function onClickNextFile () {
 }
 
 function showMetadata () {
-	var start, end;
+	var other, count, start, end;
 	document.getElementById('metadata-title').value = currentFile.metadata.title;
 	document.getElementById('metadata-artist').value = currentFile.metadata.artist;
 	document.getElementById('metadata-album').value = currentFile.metadata.album;
 	document.getElementById('metadata-track').value = currentFile.metadata.track;
 	document.getElementById('metadata-disc').value = currentFile.metadata.disc;
-	document.getElementById('metadata-other-count').innerHTML = currentFile.metadata.other.length;
+	other = document.getElementById('metadata-other');
+	count = document.getElementById('metadata-other-count');
+	other.checked = true;
+	count.innerHTML = _('label-other', {n: currentFile.metadata.other.length});
+	if (currentFile.metadata.other.length) {
+		other.disabled = false;
+		count.className = '';
+	} else {
+		other.disabled = true;
+		count.className = 'disabled';
+	}
+	document.getElementById('metadata-other').checked = true;
 	showCover(currentFile.metadata.cover);
 	start = document.getElementById('metadata-start');
 	end = document.getElementById('metadata-end');

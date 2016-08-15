@@ -67,7 +67,7 @@ function readImage (array) {
 	return buffer;
 }
 
-function MP3Metadata (buffer) {
+function MP3Metadata (buffer, allowTrim) {
 	var metadata = this.stripMetadata(buffer);
 	this.metadata = {
 		title: '',
@@ -81,7 +81,7 @@ function MP3Metadata (buffer) {
 	if (metadata) {
 		this.parseMetadata(new Uint8Array(metadata));
 	}
-	if (this.parseFrames) {
+	if (allowTrim && this.parseFrames) {
 		this.metadata.length = this.parseFrames(this.music);
 	}
 }

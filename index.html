@@ -13,17 +13,15 @@
 
 <section id="page-select">
 <button data-l10n-id="button-select-music" id="button-select-music">(button-select-music)</button>
-<!--TODO l10n-->
-<p>Please note the following things:
+<label><input id="check-allow-trim" type="checkbox" checked>&nbsp;<span data-l10n-id="check-allow-trim">(check-allow-trim)</span></label>
+<p><span data-l10n-id="help-intro">(help-intro)</span>
 <ul>
-<li>This app is very much beta, and will have some rough edges.</li>
-<li>This app only works with MP3 and OGG/Vorbis files.</li>
-<li>You can only edit the metadata the music app cares about. You can keep other metadata, though.</li>
-<li>The track and disc number should be pure numeric, optionally followed by a slash and the total number. You won't be prevented from entering anything else, though.</li>
-<li>You can add cover images to OGG files, but only recent versions of Firefox OS will read them (probably, I didn't actually test this). Also note that large images will break the file. The threshold is somewhere around 100 KB. Cover files in MP3 should work with much less problems.</li>
-<li>You can trim MP3 files (remove parts at the start and the end). Times should be entered in the form min:sec. You can use decimals to specify milliseconds. Leave the fields empty if you want to trim only from one side or not at all. Note that this might not always work as expected and might confuse the time slider. You should consider this feature as very experimental, you might want to use a different tool like <a target="_blank" href="http://wincreator.com/cutter">wincreator.com</a> instead.</li>
-<li>The original file is kept unchanged, instead a new copy will be stored in your Download folder. Please make sure that this new file works as expected before replacing the original.</li>
-<li>This app is free software, its source can be obtained on <a target="_blank" href="https://github.com/Schnark/musicmetadata">Github</a>. There you also find the exact conditions under which you are allowed to reuse this software. This software is provided 'as-is', without any express or implied warranty.</li>
+<li data-l10n-id="help-li-1">(help-li-1)</li>
+<li data-l10n-id="help-li-2">(help-li-2)</li>
+<li data-l10n-id="help-li-3">(help-li-3)</li>
+<li data-l10n-id="help-li-4">(help-li-4)</li>
+<li data-l10n-id="help-li-5">(help-li-5)</li>
+<li data-l10n-id="help-li-6">(help-li-6)</li>
 </ul>
 </p>
 </section>
@@ -41,7 +39,7 @@
 <button data-l10n-id="button-select-cover" id="button-select-cover">(button-select-cover)</button>
 <button data-l10n-id="button-remove-cover" id="button-remove-cover" class="destructive">(button-remove-cover)</button>
 <h3 data-l10n-id="head-other">(head-other)</h3>
-<label><input id="metadata-other" type="checkbox" checked>&nbsp;<span data-l10n-id="label-other-part1">(label-other-part1)</span><span id="metadata-other-count"></span> <span data-l10n-id="label-other-part2">(label-other-part2)</span></label>
+<label><input id="metadata-other" type="checkbox" checked>&nbsp;<span id="metadata-other-count" data-l10n-id="label-other" data-l10n-args='{"n": 0}'>(label-other)</span></label>
 <div id="trim-container">
 <h1 data-l10n-id="head-trim">(head-trim)</h1>
 <label><span data-l10n-id="label-start">(label-start)</span><br><input id="metadata-start"></label>
