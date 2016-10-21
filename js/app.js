@@ -135,4 +135,11 @@ function readMetadata () {
 
 initEvents();
 
+window.addEventListener('localized', function () {
+	document.documentElement.lang = document.webL10n.getLanguage();
+	document.documentElement.dir = document.webL10n.getDirection();
+	document.getElementById('page-loading').hidden = true;
+	document.getElementById('page-select').hidden = false;
+}, false);
+
 })();

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<title data-l10n-id="title">(title)</title>
+<style>
+html {
+	font-family: sans-serif;
+}
+
+.gallery img {
+	float: left;
+	width: 270px;
+	margin: 5px;
+	border: 1px solid black;
+}
+
+.gallery {
+	float: left;
+	width: 100%;
+	border: 1px solid black;
+}
+
+.clear {
+	clear: both;
+}
+
+button, .button {
+	font: inherit;
+	display: block;
+	width: 100%;
+	line-height: 2;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	border: none;
+	border-radius: 2px;
+	text-align: center;
+	background-image: linear-gradient(-45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 100%);
+	background-color: blue;
+	color: white;
+	text-decoration: none;
+	cursor: default;
+}
+</style>
+<link rel="resource" type="application/l10n" href="locales.ini">
+<script src="../js/l10n.js"></script>
+</head><body>
+<h1 data-l10n-id="title">(title)</h1>
+<nav>
+<a data-l10n-id="screenshots" href="#screenshots">(screenshots)</a> – <a data-l10n-id="description" href="#description">(description)</a> – <a data-l10n-id="install" href="#install">(install)</a>
+</nav>
+<h2 data-l10n-id="screenshots" id="screenshots">(screenshots)</h2>
+<div class="gallery">
+<img src="2016-06-07-14-46-00.png">
+</div>
+<br class="clear">
+
+<h2 data-l10n-id="description" id="description">(description)</h2>
+<p data-l10n-id="desc">(desc)</p>
+
+<h2 data-l10n-id="install" id="install">(install)</h2>
+<p data-l10n-id="inst-1">(inst-1)</p>
+<p>
+<a data-l10n-id="button-online" href="../index.html" class="button">(button-online)</a>
+</p>
+<p data-l10n-id="inst-2">(inst-2)</p>
+<p>
+<button data-l10n-id="button-install" id="install-button">(button-install)</button>
+</p>
+<script>
+document.getElementById('install-button').onclick = function () {
+	navigator.mozApps.installPackage('https://schnark.github.io/musicmetadata/github.manifest.webapp');
+};
+</script>
+</body></html>

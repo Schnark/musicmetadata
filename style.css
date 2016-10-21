@@ -42,3 +42,30 @@ img {
 	max-width: 128px;
 	max-height: 128px;
 }
+
+#page-loading img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 512px;
+	height: 512px;
+	max-width: none;
+	max-height: none;
+	margin-left: -256px;
+	margin-top: -256px;
+}
+
+@media (max-width: 512px) {
+	#page-loading img {
+		width: 256px;
+		height: 256px;
+		margin-left: -128px;
+		margin-top: -128px;
+	}
+}
+
+@media (max-width: 256px) {
+	#page-loading img {
+		display: none;
+	}
+}

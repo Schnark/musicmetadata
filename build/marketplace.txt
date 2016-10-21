@@ -1,3 +1,0 @@
-This app allows you to edit metadata in audio files. This includes the title, artist and album shown in the music app as well as the cover image. You can also trim an audio file.
-
-Diese App ermöglicht es, Matadaten in Audiodateien zu bearbeiten. Dies beinhaltet den Titel, Künstler und das Album, die in der Musik-App gezeigt werden, ebenso wie das Cover-Bild. Du kannst eine Audiodateie auch beschneiden.
