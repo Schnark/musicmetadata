@@ -1,7 +1,8 @@
 {
-	"version": "1.3",
+	"version": "2.0",
 	"name": "Music Metadata",
 	"description": "App to edit metadata in audio files",
+	"size": 47241,
 	"package_path": "https://schnark.github.io/musicmetadata/musicmetadata.zip",
 	"icons": {
 		"128": "/icon-128.png",
