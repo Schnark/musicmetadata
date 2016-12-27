@@ -10,7 +10,6 @@ function addListener (id, handler) {
 function initEvents () {
 	addListener('button-select-music', onClickSelectMusic);
 	addListener('button-select-cover', onClickSelectCover);
-	addListener('metadata-cover', onClickSelectCover);
 	addListener('button-remove-cover', onClickRemoveCover);
 	addListener('button-generate-file', onClickGenerateFile);
 	addListener('button-next-file', onClickNextFile);
@@ -106,8 +105,15 @@ function showMetadata () {
 }
 
 function showCover (buffer) {
-	var cover = document.getElementById('metadata-cover'), button = document.getElementById('button-remove-cover');
-	cover.src = buffer ? util.urlFromBuffer(buffer) : '';
+	var mime = buffer ? util.getMime(new Uint8Array(buffer)) : '',
+		url = buffer ? util.urlFromBuffer(buffer, mime) : '',
+		name = 'cover.' + (mime === 'image/jpeg' ? 'jpg' : 'png'),
+		cover = document.getElementById('metadata-cover'),
+		coverImg = document.getElementById('metadata-cover-img'),
+		button = document.getElementById('button-remove-cover');
+	cover.href = url;
+	cover.download = name;
+	coverImg.src = url;
 	cover.hidden = !buffer;
 	button.disabled = !buffer;
 }
