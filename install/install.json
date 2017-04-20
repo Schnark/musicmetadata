@@ -1,0 +1,16 @@
+{
+	"@comment": "Note that the code to transform these data into a webpage is in https://github.com/Schnark/schnark.github.io",
+	"title": {
+		"en": "Music Metadata – App for Firefox OS",
+		"de": "Musik-Metadaten – App für Firefox OS"
+	},
+	"serviceworker": true,
+	"icon": "icon-128.png",
+	"screenshots": [
+		"2016-06-07-14-46-00.png"
+	],
+	"desc": {
+		"en": ["This app allows you to edit metadata in audio files. This includes the title, artist and album shown in the music app as well as the cover image. You can also trim an audio file."],
+		"de": ["Diese App ermöglicht es, Metadaten in Audiodateien zu bearbeiten. Dies beinhaltet den Titel, Künstler und das Album, die in der Musik-App gezeigt werden, ebenso wie das Cover-Bild. Du kannst eine Audiodateie auch beschneiden."]
+	}
+}
