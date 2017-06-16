@@ -1,5 +1,5 @@
 {
-	"version": "2.2",
+	"version": "2.3",
 	"name": "Music Metadata",
 	"description": "App to edit metadata in audio files",
 	"launch_path": "/index.html",

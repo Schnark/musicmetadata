@@ -1,8 +1,8 @@
 {
-	"version": "2.2",
+	"version": "2.3",
 	"name": "Music Metadata",
 	"description": "App to edit metadata in audio files",
-	"size": 47567,
+	"size": 47518,
 	"package_path": "http://localhost:8080/musicmetadata.zip",
 	"icons": {
 		"128": "/icon-128.png",
