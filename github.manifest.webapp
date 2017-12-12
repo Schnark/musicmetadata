@@ -1,8 +1,8 @@
 {
-	"version": "2.3",
+	"version": "2.4",
 	"name": "Music Metadata",
 	"description": "App to edit metadata in audio files",
-	"size": 47518,
+	"size": 41311,
 	"package_path": "https://schnark.github.io/musicmetadata/musicmetadata.zip",
 	"icons": {
 		"128": "/icon-128.png",
@@ -12,7 +12,6 @@
 		"name": "Michael Müller",
 		"url": "https://github.com/Schnark"
 	},
-	"installs_allowed_from": ["*"],
 	"default_locale": "en",
 	"locales": {
 		"de": {
