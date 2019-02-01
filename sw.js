@@ -2,7 +2,8 @@
 (function (worker) {
 "use strict";
 
-var VERSION = 'v2.4',
+var PREFIX = 'musicmetadata',
+	VERSION = '2.4',
 	FILES = [
 		'js/app.js',
 		'js/id3.js',
@@ -20,7 +21,7 @@ var VERSION = 'v2.4',
 
 worker.addEventListener('install', function (e) {
 	e.waitUntil(
-		caches.open(VERSION).then(function (cache) {
+		caches.open(PREFIX + ':' + VERSION).then(function (cache) {
 			return cache.addAll(FILES);
 		})
 	);
@@ -30,7 +31,7 @@ worker.addEventListener('activate', function (e) {
 	e.waitUntil(
 		caches.keys().then(function (keys) {
 			return Promise.all(keys.map(function (key) {
-				if (key !== VERSION) {
+				if (key.indexOf(PREFIX + ':') === 0 && key !== PREFIX + ':' + VERSION) {
 					return caches.delete(key);
 				}
 			}));
